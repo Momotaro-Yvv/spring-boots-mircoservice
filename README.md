@@ -11,6 +11,27 @@ This is a multi-module maven project with two modules:
 - The `micoservice` module produces a spring boot application.
 - The `functional-tests` is used to run functional tests using the [karate](https://github.com/intuit/karate) library.
 
+## How to run application
+
+First of all, start the application in your IDE or use the command line:
+```shell
+mvn spring-boot:run -pl microservice
+```
+
+Once the application is running, visit the client application in the browser at `localhost:8080/<endpoint>`.
+
+The available endpoints are:
+
+- `hello`: Displays a simple greeting message.
+- `catFacts`: Retrieves interesting facts about cats.
+- `TODO...`
+
+## How to run functional test cases
+
+```shell
+mvn clean test
+```
+
 ## Instructions
 
 Select one of the two exercises below and add the required behaviour to the spring boot application in the microservice module. You can:

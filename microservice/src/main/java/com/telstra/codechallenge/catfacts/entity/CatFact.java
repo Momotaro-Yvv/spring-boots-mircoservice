@@ -1,11 +1,11 @@
-package com.telstra.codechallenge.catfacts;
+package com.telstra.codechallenge.catfacts.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.List;
 import lombok.Data;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public class CatFactResponse {
-  private List<CatFact> data;
+public class CatFact {
+  private String fact;
+  private Integer length;
 }

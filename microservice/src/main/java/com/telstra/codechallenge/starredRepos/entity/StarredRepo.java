@@ -12,4 +12,12 @@ public class StarredRepo {
     private String language;
     private String description;
     private String name;
+
+    public StarredRepo(String html_url, Integer watchers_count, String language, String description, String name) {
+        this.html_url = html_url;
+        this.watchers_count = watchers_count;
+        this.language = language;
+        this.description = description;
+        this.name = name;
+    }
 }

@@ -10,4 +10,8 @@ import java.util.List;
 @Data
 public class StarredRepoResponse {
     private List<StarredRepo> items;
+
+    public StarredRepoResponse(List<StarredRepo> items) {
+        this.items = items;
+    }
 }

@@ -37,7 +37,12 @@ public class StarredRepoService {
         String timeframe = URLEncoder.encode("created:>" + formattedDate, StandardCharsets.UTF_8);
         String perPage = number.toString();
         String sortBy = "stars";
-        URI repoUrl = new URI(starredRepoBaseUrl + "?q=" + timeframe + "&per_page=" + perPage + "&sort=" + sortBy);
+        URI repoUrl = new URI(
+                starredRepoBaseUrl +
+                "?q=" + timeframe +
+                "&per_page=" + perPage +
+                "&sort=" + sortBy
+        );
 
         StarredRepoResponse starredRepoResponse = restTemplate.getForObject(repoUrl, StarredRepoResponse.class);
         List<StarredRepo> starredRepos = null;

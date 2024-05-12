@@ -1,14 +1,14 @@
 package com.telstra.codechallenge.catfacts.service;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-
 import com.telstra.codechallenge.catfacts.entity.CatFact;
 import com.telstra.codechallenge.catfacts.service.model.CatFactResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
 
 @Service
 public class CatFactsService {

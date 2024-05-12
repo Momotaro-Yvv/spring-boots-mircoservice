@@ -4,10 +4,9 @@ import com.telstra.codechallenge.starredRepos.entity.StarredRepo;
 import com.telstra.codechallenge.starredRepos.service.StarredRepoService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class StarredRepoControllerTest {
     @Mock
     private StarredRepoService starredRepoService;

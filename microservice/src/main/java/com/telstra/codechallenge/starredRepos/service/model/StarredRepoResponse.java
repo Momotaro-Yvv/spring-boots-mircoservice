@@ -11,6 +11,9 @@ import java.util.List;
 public class StarredRepoResponse {
     private List<StarredRepo> items;
 
+    public StarredRepoResponse() {
+    }
+
     public StarredRepoResponse(List<StarredRepo> items) {
         this.items = items;
     }

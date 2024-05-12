@@ -2,6 +2,7 @@ package com.telstra.codechallenge.starredRepos.service;
 
 import com.telstra.codechallenge.starredRepos.entity.StarredRepo;
 import com.telstra.codechallenge.starredRepos.service.model.StarredRepoResponse;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -27,23 +28,27 @@ class StarredRepoServiceTest {
     @InjectMocks
     private StarredRepoService starredRepoService;
 
-    @Test
-    void testGetStarredRepos() throws URISyntaxException {
+    private List<StarredRepo> mockedStarredRepos;
+    @BeforeEach
+    void setUp(){
         // Mock data
-        List<StarredRepo> mockedStarredRepos = new ArrayList<>();
+        mockedStarredRepos = new ArrayList<>();
         mockedStarredRepos.add(new StarredRepo(
                 "https://github.com/lllyasviel/IC-Light",
                 100,
                 "Python",
                 "More relighting!",
-                "IC-Light")
-        );
+                "IC-Light"));
+    }
+
+    @Test
+    void testGetStarredRepos() throws URISyntaxException {
 
         // Mock restTemplate behavior
         when(restTemplate.getForObject(any(URI.class), eq(StarredRepoResponse.class)))
                 .thenReturn(new StarredRepoResponse(mockedStarredRepos));
 
-        // Call the method under test
+        // Call the service method
         List<StarredRepo> result = starredRepoService.getStarredRepos(5);
 
         // Assertions

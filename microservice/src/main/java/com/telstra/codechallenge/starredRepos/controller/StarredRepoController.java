@@ -15,6 +15,7 @@ import java.util.List;
 public class StarredRepoController {
     private final StarredRepoService starredRepoService;
     private final Logger logger = LoggerFactory.getLogger(StarredRepoController.class);
+
     public StarredRepoController(StarredRepoService starredRepoService) {
         this.starredRepoService = starredRepoService;
     }
@@ -22,7 +23,7 @@ public class StarredRepoController {
     @GetMapping(path = "/starredRepo")
     public List<StarredRepo> starredRepos(@RequestParam("n") Integer n) throws URISyntaxException {
         logger.info("Retrieving {} repositories with the highest stars", n);
-        if (n <= 0){
+        if (n <= 0) {
             throw new IllegalArgumentException("Parameter n must be greater then 0");
         }
         return starredRepoService.getStarredRepos(n);

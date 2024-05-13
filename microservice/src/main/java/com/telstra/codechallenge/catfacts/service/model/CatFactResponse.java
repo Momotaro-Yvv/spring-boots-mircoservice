@@ -9,5 +9,5 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 public class CatFactResponse {
-  private List<CatFact> data;
+    private List<CatFact> data;
 }

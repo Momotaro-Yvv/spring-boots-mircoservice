@@ -28,8 +28,10 @@ The available endpoints are:
 - `starredRepo`: Retrieves top n repos from GitHub API with the highest stars created from the last 7 days.
 
 Once you access the URL, you will be redirected to the login page. Enter the following credentials:
+
 - `Username`: user
 - `Password`: password
+
 ## How to run functional test cases
 
 ```shell

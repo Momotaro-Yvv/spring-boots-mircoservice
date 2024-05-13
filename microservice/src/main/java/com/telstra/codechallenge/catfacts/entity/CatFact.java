@@ -6,6 +6,6 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 public class CatFact {
-  private String fact;
-  private Integer length;
+    private String fact;
+    private Integer length;
 }

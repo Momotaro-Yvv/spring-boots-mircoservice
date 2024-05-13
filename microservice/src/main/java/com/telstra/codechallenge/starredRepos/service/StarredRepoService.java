@@ -38,7 +38,7 @@ public class StarredRepoService {
         String perPage = number.toString();
         String sortBy = "stars";
         URI repoUrl = new URI(
-                starredRepoBaseUrl +
+            starredRepoBaseUrl +
                 "?q=" + timeframe +
                 "&per_page=" + perPage +
                 "&sort=" + sortBy

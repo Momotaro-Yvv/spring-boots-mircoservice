@@ -12,12 +12,11 @@ import java.util.List;
 
 @Service
 public class CatFactsService {
+    private final RestTemplate restTemplate;
     @Value("${catFacts.base.url}")
     private String catFactsBaseUrl;
-
     @Value("${catFacts.fact.endpoint}")
     private String catFactsEndpoint;
-    private final RestTemplate restTemplate;
 
     public CatFactsService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
@@ -33,7 +32,7 @@ public class CatFactsService {
     public List<CatFact> getCatFacts() throws URISyntaxException {
         URI catUrl = new URI(catFactsBaseUrl + catFactsEndpoint);
         CatFactResponse catFactResponse =
-                restTemplate.getForObject(catUrl, CatFactResponse.class);
+            restTemplate.getForObject(catUrl, CatFactResponse.class);
         List<CatFact> catFacts = null;
         if (catFactResponse != null) {
             catFacts = catFactResponse.getData();

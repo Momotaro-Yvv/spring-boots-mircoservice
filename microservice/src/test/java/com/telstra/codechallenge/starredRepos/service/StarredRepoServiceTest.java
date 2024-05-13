@@ -28,16 +28,17 @@ class StarredRepoServiceTest {
     private StarredRepoService starredRepoService;
 
     private List<StarredRepo> mockedStarredRepos;
+
     @BeforeEach
-    void setUp(){
+    void setUp() {
         // Mock data
         mockedStarredRepos = new ArrayList<>();
         mockedStarredRepos.add(new StarredRepo(
-                "https://github.com/lllyasviel/IC-Light",
-                100,
-                "Python",
-                "More relighting!",
-                "IC-Light"));
+            "https://github.com/lllyasviel/IC-Light",
+            100,
+            "Python",
+            "More relighting!",
+            "IC-Light"));
     }
 
     @Test
@@ -45,7 +46,7 @@ class StarredRepoServiceTest {
 
         // Mock restTemplate behavior
         when(restTemplate.getForObject(any(URI.class), eq(StarredRepoResponse.class)))
-                .thenReturn(new StarredRepoResponse(mockedStarredRepos));
+            .thenReturn(new StarredRepoResponse(mockedStarredRepos));
 
         // Call the service method
         List<StarredRepo> result = starredRepoService.getStarredRepos(5);

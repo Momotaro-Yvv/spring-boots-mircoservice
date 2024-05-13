@@ -9,18 +9,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URISyntaxException;
 import java.util.List;
+
 @RestController
 public class CatFactsController {
-  private final CatFactsService catFactsService;
-  private final Logger logger = LoggerFactory.getLogger(CatFactsController.class);
-  public CatFactsController(
-      CatFactsService catFactsService) {
-    this.catFactsService = catFactsService;
-  }
+    private final CatFactsService catFactsService;
+    private final Logger logger = LoggerFactory.getLogger(CatFactsController.class);
 
-  @GetMapping(path = "/catFacts")
-  public List<CatFact> catFacts() throws URISyntaxException {
-    logger.info("CatFactsController: Retrieving facts on cats");
-    return catFactsService.getCatFacts();
-  }
+    public CatFactsController(
+        CatFactsService catFactsService) {
+        this.catFactsService = catFactsService;
+    }
+
+    @GetMapping(path = "/catFacts")
+    public List<CatFact> catFacts() throws URISyntaxException {
+        logger.info("CatFactsController: Retrieving facts on cats");
+        return catFactsService.getCatFacts();
+    }
 }

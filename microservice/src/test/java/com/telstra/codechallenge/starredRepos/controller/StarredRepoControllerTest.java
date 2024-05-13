@@ -26,16 +26,17 @@ class StarredRepoControllerTest {
     private StarredRepoController starredRepoController;
 
     private List<StarredRepo> mockedStarredRepos;
+
     @BeforeEach
-    void setUp(){
+    void setUp() {
         // Mock data
         mockedStarredRepos = new ArrayList<>();
         mockedStarredRepos.add(new StarredRepo(
-                "https://github.com/lllyasviel/IC-Light",
-                100,
-                "Python",
-                "More relighting!",
-                "IC-Light"));
+            "https://github.com/lllyasviel/IC-Light",
+            100,
+            "Python",
+            "More relighting!",
+            "IC-Light"));
     }
 
     @Test

@@ -5,7 +5,8 @@ Feature: As a developer i want to test the helloworld uri
 
   Scenario: Is the hello uri available and functioning
     Given url microserviceUrl
-    And path '/hello'
+    And path hello_endpoint
+    And header Authorization = call read('classpath:basic-auth.js') credential
     When method GET
     Then status 200
     And match header Content-Type contains 'application/json'

@@ -5,14 +5,16 @@ Feature: As a developer i want to know if my spring boot application is running
 
   Scenario: Is the health uri available and status=UP
     Given url microserviceUrl
-    And path '/actuator/health'
+    And path health_endpoint
+    And header Authorization = call read('classpath:basic-auth.js') credential
     When method GET
     Then status 200
     And match response == { "status" : "UP" }
 
   Scenario: Is the info uri available and returning data
     Given url microserviceUrl
-    And path '/actuator/info'
+    And path info_endpoint
+    And header Authorization = call read('classpath:basic-auth.js') credential
     When method GET
     Then status 200
     # see https://github.com/intuit/karate#schema-validation

@@ -5,7 +5,8 @@ Feature: As an api user I want to retrieve some cat facts
 
   Scenario: Get all the cat facts
     Given url microserviceUrl
-    And path '/catFacts'
+    And header Authorization = call read('classpath:basic-auth.js') credential
+    And path cat_endpoint
     When method GET
     Then status 200
     And match header Content-Type contains 'application/json'

@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestClientException;
 
@@ -17,24 +20,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class MicroserviceApplicationTests {
-	@LocalServerPort
-	private int port;
+    private final Logger logger = LoggerFactory.getLogger(MicroserviceApplicationTests.class);
+    @LocalServerPort
+    private int port;
+    @Autowired
+    private TestRestTemplate restTemplate;
 
-	@Autowired
-	private TestRestTemplate restTemplate;
+    @Test
+    void contextLoads() {
+    }
 
-	private final Logger logger = LoggerFactory.getLogger(MicroserviceApplicationTests.class);;
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void testHealth() throws RestClientException, MalformedURLException {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setBasicAuth("user", "password");
+        HttpEntity<String> entity = new HttpEntity<>(headers);
 
-	@Test
-	void testHealth() throws RestClientException, MalformedURLException {
-		ResponseEntity<String> response = restTemplate
-				.getForEntity(new URL("http://localhost:" + port + "/actuator/health")
-						.toString(), String.class);
-		logger.info("response: " + response);
-		assertEquals("{\"status\":\"UP\"}", response
-				.getBody());
-	}
+        ResponseEntity<String> response = restTemplate
+            .exchange(
+                new URL("http://localhost:" + port + "/actuator/health").toString(),
+                HttpMethod.GET,
+                entity, String.class);
+        logger.info("response: " + response);
+        assertEquals("{\"status\":\"UP\"}", response.getBody());
+    }
 }

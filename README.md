@@ -14,6 +14,7 @@ This is a multi-module maven project with two modules:
 ## How to run application
 
 First of all, start the application in your IDE or use the command line:
+
 ```shell
 mvn spring-boot:run -pl microservice
 ```
@@ -24,28 +25,35 @@ The available endpoints are:
 
 - `hello`: Displays a simple greeting message.
 - `catFacts`: Retrieves interesting facts about cats.
-- `TODO...`
+- `starredRepo`: Retrieves top n repos from GitHub API with the highest stars created from the last 7 days.
 
+Once you access the URL, you will be redirected to the login page. Enter the following credentials:
+- `Username`: user
+- `Password`: password
 ## How to run functional test cases
 
 ```shell
-mvn clean test
+mvn clean verify
 ```
 
 ## Instructions
 
-Select one of the two exercises below and add the required behaviour to the spring boot application in the microservice module. You can:
+Select one of the two exercises below and add the required behaviour to the spring boot application in the microservice
+module. You can:
 
 - Add libraries you need.
 - Refactor any of the existing code.
 
-You will see that there are already a couple of endpoints in the `microservice` they are fundamentally there to demonstrate the use of the [karate](https://github.com/intuit/karate) library and should not be taken as complete examples.
+You will see that there are already a couple of endpoints in the `microservice` they are fundamentally there to
+demonstrate the use of the [karate](https://github.com/intuit/karate) library and should not be taken as complete
+examples.
 
 ### Assessment
 
-Please assume this piece of code would be deployed to a production environment and managed by software developers into the future.
+Please assume this piece of code would be deployed to a production environment and managed by software developers into
+the future.
 
-Your submission will be judged on the following criteria: 
+Your submission will be judged on the following criteria:
 
 - The solution works and compiles.
 - The solution appropriately solves the problem.
@@ -55,7 +63,8 @@ Your submission will be judged on the following criteria:
 
 ## The Exercises
 
-Example curl api calls for these exercises are listed in the following gist https://gist.github.com/bartonhammond/0a19da4c24c0f644ae38
+Example curl api calls for these exercises are listed in the following
+gist https://gist.github.com/bartonhammond/0a19da4c24c0f644ae38
 
 **1. Find the hottest repositories created in the last week**
 
